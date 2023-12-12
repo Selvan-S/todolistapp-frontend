@@ -1,0 +1,40 @@
+.todosGrid {
+  width: 100%;
+}
+
+.todosPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todoCard {
+  background-color: whitesmoke;
+}
+
+.todoList {
+  background-color: white;
+  white-space: pre-line;
+}
+
+.todoBody {
+  mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+.todoBody:hover, .mask_image_none{
+  mask-image: none;
+}
+
+.taskGrid {
+  /* overflow: hidden;
+  height: 300px; */
+  background-color: red;
+  display: grid;
+  grid-template-rows: 0fr;
+}
+.taskGrid:hover {
+  grid-template-rows: 1fr;
+}
+
+.finishedTask {
+  color: gray;
+}

@@ -1,0 +1,40 @@
+.blockCenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.positionRelative{
+    position: relative;
+}
+
+.positionAbsolute{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 3px;
+    z-index: 1;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.buttonText {
+  font-size: 1rem;
+  padding: 2px 5px;
+}
+
+.checkTask {
+  display: flex;
+  gap: 5px;
+  right: 5px;
+  top: auto;
+  bottom: 8px;
+}
+
