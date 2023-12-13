@@ -9,7 +9,10 @@ import todoStyles from "../styles/Todo.module.css";
 import styles from "../styles/TodoPage.module.css";
 import styleUtils from "../styles/utils.module.css";
 import { formatDate } from "../utils/formatDate";
-import API_URL from "../config/global";
+// import API_URL from "../config/global";
+import "dotenv/config";
+
+const API_URL = process.env.API_URL;
 
 interface TodoProps {
   todo: TodoModel;

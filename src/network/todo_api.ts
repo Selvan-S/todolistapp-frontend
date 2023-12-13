@@ -1,7 +1,10 @@
 import { ConflictError, UnauthorizedError } from "../errors/http.errors";
 import { Todo } from "../models/todo";
 import { User } from "../models/user";
-import API_URL from "../config/global";
+// import API_URL from "../config/global";
+import "dotenv/config";
+
+const API_URL = process.env.API_URL;
 
 async function fetchWithError(input: RequestInfo, init?: RequestInit) {
   const response = await fetch(input, init);
