@@ -29,8 +29,8 @@ async function fetchWithError(input: RequestInfo, init?: RequestInit) {
 // User Sign in, Log in and Logout
 
 export async function getLoggedInUser(): Promise<User> {
-  // const response = await fetchWithError(`${API_URL}/api/v1/users`, {
-  const response = await fetchWithError("/api/v1/users", {
+  const response = await fetchWithError(`${API_URL}/api/v1/users`, {
+    // const response = await fetchWithError("/api/v1/users", {
     method: "GET",
   });
   return response.json();
@@ -43,8 +43,8 @@ export interface SignUpCredentials {
 }
 
 export async function signUp(credentials: SignUpCredentials): Promise<User> {
-  // const response = await fetchWithError(`${API_URL}/api/v1/users/signup`, {
-  const response = await fetchWithError("/api/v1/users/signup", {
+  const response = await fetchWithError(`${API_URL}/api/v1/users/signup`, {
+    // const response = await fetchWithError("/api/v1/users/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -60,8 +60,8 @@ export interface LoginCredentials {
 }
 
 export async function login(credentials: LoginCredentials): Promise<User> {
-  // const response = await fetchWithError(`${API_URL}/api/v1/users/login`, {
-  const response = await fetchWithError("/api/v1/users/login", {
+  const response = await fetchWithError(`${API_URL}/api/v1/users/login`, {
+    // const response = await fetchWithError("/api/v1/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -72,8 +72,8 @@ export async function login(credentials: LoginCredentials): Promise<User> {
 }
 
 export async function logout() {
-  // await fetchWithError(`${API_URL}/api/v1/users/logout`, {
-  await fetchWithError("/api/v1/users/logout", {
+  await fetchWithError(`${API_URL}/api/v1/users/logout`, {
+    // await fetchWithError("/api/v1/users/logout", {
     method: "POST",
   });
 }
@@ -81,8 +81,8 @@ export async function logout() {
 // Todo
 
 export async function fetchTodo(): Promise<Todo[]> {
-  // const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
-  const response = await fetchWithError("/api/v1/todos", {
+  const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
+    // const response = await fetchWithError("/api/v1/todos", {
     method: "GET",
   });
   return response.json();
@@ -93,8 +93,8 @@ export interface TodoInput {
 }
 
 export async function createTodo(todo: TodoInput): Promise<Todo> {
-  // const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
-  const response = await fetchWithError("/api/v1/todos", {
+  const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
+    // const response = await fetchWithError("/api/v1/todos", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -108,8 +108,8 @@ export async function updateTodo(
   todoId: string,
   todo: TodoInput
 ): Promise<Todo> {
-  // const response = await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
-  const response = await fetchWithError("/api/v1/todos/" + todoId, {
+  const response = await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
+    // const response = await fetchWithError("/api/v1/todos/" + todoId, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -120,8 +120,8 @@ export async function updateTodo(
 }
 
 export async function deleteTodo(todoId: string) {
-  // await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
-  await fetchWithError("/api/v1/todos/" + todoId, {
+  await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
+    // await fetchWithError("/api/v1/todos/" + todoId, {
     method: "DELETE",
   });
 }
