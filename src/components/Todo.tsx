@@ -11,8 +11,6 @@ import styleUtils from "../styles/utils.module.css";
 import { formatDate } from "../utils/formatDate";
 // import API_URL from "../config/global";
 
-const API_URL = "https://todolist-be-lrdl.onrender.com";
-
 interface TodoProps {
   todo: TodoModel;
   onTodoClicked: (todo: TodoModel) => void;
@@ -64,8 +62,8 @@ const Todo = ({
   }
 
   async function addTask(input: string, id: string) {
-    const createdTaskRsponse = await fetch(`${API_URL}/api/v1/tasks`, {
-      // const createdTaskRsponse = await fetch("/api/v1/tasks", {
+    // const createdTaskRsponse = await fetch(`${API_URL}/api/v1/tasks`, {
+    const createdTaskRsponse = await fetch("/api/v1/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,8 +85,8 @@ const Todo = ({
     index: number
   ) {
     try {
-      await fetch(`${API_URL}/api/v1/tasks`, {
-        // await fetch("/api/v1/tasks", {
+      // await fetch(`${API_URL}/api/v1/tasks`, {
+      await fetch("/api/v1/tasks", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -108,8 +106,8 @@ const Todo = ({
   }
 
   async function editTask(taskId: string, input: string, index: number) {
-    await fetch(`${API_URL}/api/v1/tasks`, {
-      // await fetch("/api/v1/tasks", {
+    // await fetch(`${API_URL}/api/v1/tasks`, {
+    await fetch("/api/v1/tasks", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

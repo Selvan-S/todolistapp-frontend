@@ -3,8 +3,6 @@ import { Todo } from "../models/todo";
 import { User } from "../models/user";
 // import API_URL from "../config/global";
 
-const API_URL = "https://todolist-be-lrdl.onrender.com";
-
 async function fetchWithError(input: RequestInfo, init?: RequestInit) {
   const response = await fetch(input, init);
   if (response.ok) {
@@ -32,13 +30,11 @@ async function fetchWithError(input: RequestInfo, init?: RequestInit) {
 
 export async function getLoggedInUser(): Promise<User> {
   // const response = await fetchWithError(`${API_URL}/api/v1/users`, {
-  const response = await fetchWithError(
-    "https://todolist-be-lrdl.onrender.com/api/v1/users",
-    {
-      method: "GET",
-    }
-  );
-  return response.json();
+  const response = await fetchWithError("/api/v1/users", {
+    method: "GET",
+  });
+  const getLoggedInUserResponse = await response.json();
+  return getLoggedInUserResponse;
 }
 
 export interface SignUpCredentials {
@@ -48,16 +44,16 @@ export interface SignUpCredentials {
 }
 
 export async function signUp(credentials: SignUpCredentials): Promise<User> {
-  const response = await fetchWithError(`${API_URL}/api/v1/users/signup`, {
-    // const response = await fetchWithError("/api/v1/users/signup", {
+  // const response = await fetchWithError(`${API_URL}/api/v1/users/signup`, {
+  const response = await fetchWithError("/api/v1/users/signup", {
     method: "POST",
-    mode: "same-origin",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(credentials),
   });
-  return response.json();
+  const SignUpCredentialsResponse = await response.json();
+  return SignUpCredentialsResponse;
 }
 
 export interface LoginCredentials {
@@ -66,20 +62,21 @@ export interface LoginCredentials {
 }
 
 export async function login(credentials: LoginCredentials): Promise<User> {
-  const response = await fetchWithError(`${API_URL}/api/v1/users/login`, {
-    // const response = await fetchWithError("/api/v1/users/login", {
+  // const response = await fetchWithError(`${API_URL}/api/v1/users/login`, {
+  const response = await fetchWithError("/api/v1/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(credentials),
   });
-  return response.json();
+  const LoginResponse = await response.json();
+  return LoginResponse;
 }
 
 export async function logout() {
-  await fetchWithError(`${API_URL}/api/v1/users/logout`, {
-    // await fetchWithError("/api/v1/users/logout", {
+  // await fetchWithError(`${API_URL}/api/v1/users/logout`, {
+  await fetchWithError("/api/v1/users/logout", {
     method: "POST",
   });
 }
@@ -87,11 +84,12 @@ export async function logout() {
 // Todo
 
 export async function fetchTodo(): Promise<Todo[]> {
-  const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
-    // const response = await fetchWithError("/api/v1/todos", {
+  // const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
+  const response = await fetchWithError("/api/v1/todos", {
     method: "GET",
   });
-  return response.json();
+  const todosResponse = await response.json();
+  return todosResponse;
 }
 
 export interface TodoInput {
@@ -99,8 +97,8 @@ export interface TodoInput {
 }
 
 export async function createTodo(todo: TodoInput): Promise<Todo> {
-  const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
-    // const response = await fetchWithError("/api/v1/todos", {
+  // const response = await fetchWithError(`${API_URL}/api/v1/todos`, {
+  const response = await fetchWithError("/api/v1/todos", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -114,8 +112,8 @@ export async function updateTodo(
   todoId: string,
   todo: TodoInput
 ): Promise<Todo> {
-  const response = await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
-    // const response = await fetchWithError("/api/v1/todos/" + todoId, {
+  // const response = await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
+  const response = await fetchWithError("/api/v1/todos/" + todoId, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -126,8 +124,8 @@ export async function updateTodo(
 }
 
 export async function deleteTodo(todoId: string) {
-  await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
-    // await fetchWithError("/api/v1/todos/" + todoId, {
+  // await fetchWithError(`${API_URL}/api/v1/todos/` + todoId, {
+  await fetchWithError("/api/v1/todos/" + todoId, {
     method: "DELETE",
   });
 }
