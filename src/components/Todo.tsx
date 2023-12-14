@@ -10,9 +10,8 @@ import styles from "../styles/TodoPage.module.css";
 import styleUtils from "../styles/utils.module.css";
 import { formatDate } from "../utils/formatDate";
 // import API_URL from "../config/global";
-import "dotenv/config";
 
-const API_URL = process.env.API_URL;
+const API_URL = "https://todolist-be-lrdl.onrender.com";
 
 interface TodoProps {
   todo: TodoModel;
@@ -65,7 +64,6 @@ const Todo = ({
   }
 
   async function addTask(input: string, id: string) {
-    let variable: TaskModel;
     const createdTaskRsponse = await fetch(`${API_URL}/api/v1/tasks`, {
       // const createdTaskRsponse = await fetch("/api/v1/tasks", {
       method: "POST",
@@ -78,8 +76,7 @@ const Todo = ({
     setAddTaskField(false);
     setIsDisabled(true);
     setTaskText("");
-    variable = await createdTaskRsponse.json();
-
+    const variable = await createdTaskRsponse.json();
     createTask(variable);
   }
 

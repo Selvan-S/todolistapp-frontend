@@ -2,9 +2,8 @@ import { ConflictError, UnauthorizedError } from "../errors/http.errors";
 import { Todo } from "../models/todo";
 import { User } from "../models/user";
 // import API_URL from "../config/global";
-import "dotenv/config";
 
-const API_URL = process.env.API_URL;
+const API_URL = "https://todolist-be-lrdl.onrender.com";
 
 async function fetchWithError(input: RequestInfo, init?: RequestInit) {
   const response = await fetch(input, init);
@@ -32,10 +31,13 @@ async function fetchWithError(input: RequestInfo, init?: RequestInit) {
 // User Sign in, Log in and Logout
 
 export async function getLoggedInUser(): Promise<User> {
-  const response = await fetchWithError(`${API_URL}/api/v1/users`, {
-    // const response = await fetchWithError("/api/v1/users", {
-    method: "GET",
-  });
+  // const response = await fetchWithError(`${API_URL}/api/v1/users`, {
+  const response = await fetchWithError(
+    "https://todolist-be-lrdl.onrender.com/api/v1/users",
+    {
+      method: "GET",
+    }
+  );
   return response.json();
 }
 
@@ -49,6 +51,7 @@ export async function signUp(credentials: SignUpCredentials): Promise<User> {
   const response = await fetchWithError(`${API_URL}/api/v1/users/signup`, {
     // const response = await fetchWithError("/api/v1/users/signup", {
     method: "POST",
+    mode: "same-origin",
     headers: {
       "Content-Type": "application/json",
     },

@@ -10,7 +10,6 @@ import Todo from "./Todo";
 
 const TodosPageLoggedView = () => {
   const [todos, setTodos] = useState<TodoModel[]>([]);
-  const [tasks, setTasks] = useState([]);
   const [todoLoading, setTodoLoading] = useState(true);
   const [showTodoLoadingError, setShowTodoLoadingError] = useState(false);
 
