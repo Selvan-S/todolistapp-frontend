@@ -62,14 +62,17 @@ const Todo = ({
   }
 
   async function addTask(input: string, id: string) {
-    // const createdTaskRsponse = await fetch(`${API_URL}/api/v1/tasks`, {
-    const createdTaskRsponse = await fetch("/api/v1/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ task: input, todo_id: id }),
-    });
+    const createdTaskRsponse = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/tasks`,
+      {
+        // const createdTaskRsponse = await fetch("/api/v1/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ task: input, todo_id: id }),
+      }
+    );
 
     setAddTaskField(false);
     setIsDisabled(true);
@@ -85,8 +88,8 @@ const Todo = ({
     index: number
   ) {
     try {
-      // await fetch(`${API_URL}/api/v1/tasks`, {
-      await fetch("/api/v1/tasks", {
+      await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/tasks`, {
+        // await fetch("/api/v1/tasks", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -106,8 +109,8 @@ const Todo = ({
   }
 
   async function editTask(taskId: string, input: string, index: number) {
-    // await fetch(`${API_URL}/api/v1/tasks`, {
-    await fetch("/api/v1/tasks", {
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/tasks`, {
+      // await fetch("/api/v1/tasks", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
