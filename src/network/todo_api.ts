@@ -1,7 +1,6 @@
 import { ConflictError, UnauthorizedError } from "../errors/http.errors";
 import { Todo } from "../models/todo";
 import { User } from "../models/user";
-// import API_URL from "../config/global";
 
 async function fetchWithError(input: RequestInfo, init?: RequestInit) {
   const response = await fetch(input, init);
@@ -32,7 +31,6 @@ export async function getLoggedInUser(): Promise<User> {
   const response = await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/users`,
     {
-      // const response = await fetchWithError("/api/v1/users", {
       method: "GET",
       credentials: "include",
       mode: "cors",
@@ -52,7 +50,6 @@ export async function signUp(credentials: SignUpCredentials): Promise<User> {
   const response = await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/users/signup`,
     {
-      // const response = await fetchWithError("/api/v1/users/signup", {
       method: "POST",
       credentials: "include",
       mode: "cors",
@@ -75,7 +72,6 @@ export async function login(credentials: LoginCredentials): Promise<User> {
   const response = await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/users/login`,
     {
-      // const response = await fetchWithError("/api/v1/users/login", {
       method: "POST",
       credentials: "include",
       mode: "cors",
@@ -93,7 +89,6 @@ export async function logout() {
   await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/users/logout`,
     {
-      // await fetchWithError("/api/v1/users/logout", {
       method: "POST",
     }
   );
@@ -103,7 +98,6 @@ export async function fetchTodo(): Promise<Todo[]> {
   const response = await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos`,
     {
-      // const response = await fetchWithError("/api/v1/todos", {
       credentials: "include",
       mode: "cors",
       method: "GET",
@@ -121,7 +115,6 @@ export async function createTodo(todo: TodoInput): Promise<Todo> {
   const response = await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos`,
     {
-      // const response = await fetchWithError("/api/v1/todos", {
       method: "POST",
       mode: "cors",
       credentials: "include",
@@ -141,7 +134,6 @@ export async function updateTodo(
   const response = await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos/` + todoId,
     {
-      // const response = await fetchWithError("/api/v1/todos/" + todoId, {
       method: "PUT",
       mode: "cors",
       credentials: "include",
@@ -158,7 +150,6 @@ export async function deleteTodo(todoId: string) {
   await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos/` + todoId,
     {
-      // await fetchWithError("/api/v1/todos/" + todoId, {
       mode: "cors",
       credentials: "include",
       method: "DELETE",

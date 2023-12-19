@@ -9,7 +9,6 @@ import todoStyles from "../styles/Todo.module.css";
 import styles from "../styles/TodoPage.module.css";
 import styleUtils from "../styles/utils.module.css";
 import { formatDate } from "../utils/formatDate";
-// import API_URL from "../config/global";
 
 interface TodoProps {
   todo: TodoModel;
@@ -65,7 +64,6 @@ const Todo = ({
     const createdTaskRsponse = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/v1/tasks`,
       {
-        // const createdTaskRsponse = await fetch("/api/v1/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,14 +87,12 @@ const Todo = ({
   ) {
     try {
       await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/tasks`, {
-        // await fetch("/api/v1/tasks", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ task_id: taskId, todo_id: todo._id }),
       });
-      console.log(`taskId: ${taskId} todo.id: ${todo._id} todoId: ${todoId}`);
 
       const removeTaskInTodo = todo;
       removeTaskInTodo.text?.splice(index, 1);
@@ -110,7 +106,6 @@ const Todo = ({
 
   async function editTask(taskId: string, input: string, index: number) {
     await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/tasks`, {
-      // await fetch("/api/v1/tasks", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
