@@ -33,7 +33,6 @@ export async function getLoggedInUser(): Promise<User> {
     {
       method: "GET",
       credentials: "include",
-      mode: "cors",
     }
   );
   const getLoggedInUserResponse = await response.json();
@@ -52,7 +51,6 @@ export async function signUp(credentials: SignUpCredentials): Promise<User> {
     {
       method: "POST",
       credentials: "include",
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -74,7 +72,6 @@ export async function login(credentials: LoginCredentials): Promise<User> {
     {
       method: "POST",
       credentials: "include",
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -99,7 +96,6 @@ export async function fetchTodo(): Promise<Todo[]> {
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos`,
     {
       credentials: "include",
-      mode: "cors",
       method: "GET",
     }
   );
@@ -116,7 +112,6 @@ export async function createTodo(todo: TodoInput): Promise<Todo> {
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos`,
     {
       method: "POST",
-      mode: "cors",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -135,7 +130,6 @@ export async function updateTodo(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos/` + todoId,
     {
       method: "PUT",
-      mode: "cors",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -150,7 +144,6 @@ export async function deleteTodo(todoId: string) {
   await fetchWithError(
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/todos/` + todoId,
     {
-      mode: "cors",
       credentials: "include",
       method: "DELETE",
     }
