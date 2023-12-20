@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Button, Card, CardFooter, ListGroup } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Container,
+  ListGroup,
+} from "react-bootstrap";
 import { BiAddToQueue, BiEdit, BiTask } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -138,25 +145,27 @@ const Todo = ({
       }`}
       onClick={toggleClass}
     >
-      <Card.Body
-        className={`${todoStyles.todoBody} 
-        ${isActive ? todoStyles.mask_image_none : null}`}
+      <Container
+        as={CardBody}
+        className={`${todoStyles.todoBody}
+          ${isActive ? todoStyles.mask_image_none : null}`}
       >
-        <Card.Title
-          className={`${styleUtils.positionRelative}`}
-          style={{ cursor: "pointer" }}
-          onClick={() => onTodoClicked(todo)}
-        >
-          {title}
-          <MdDelete
-            className={`text-danger ${styleUtils.positionAbsolute}`}
-            onClick={(e) => {
-              onDeleteTodoClicked(todo);
-              e.stopPropagation();
-            }}
-          />
-        </Card.Title>
-
+        <Card.Body>
+          <Card.Title
+            className={`${styleUtils.positionRelative}`}
+            style={{ cursor: "pointer", textAlign: "left" }}
+            onClick={() => onTodoClicked(todo)}
+          >
+            {title}
+            <MdDelete
+              className={`text-danger ${styleUtils.positionAbsolute}`}
+              onClick={(e) => {
+                onDeleteTodoClicked(todo);
+                e.stopPropagation();
+              }}
+            />
+          </Card.Title>
+        </Card.Body>
         <ListGroup className="list-group-flush">
           <Card.Header className={`${styleUtils.flexCenter}`}>
             Tasks
@@ -318,7 +327,7 @@ const Todo = ({
             ))
           )}
         </ListGroup>
-      </Card.Body>
+      </Container>
       <CardFooter className="text-muted">{createdUpdatedText}</CardFooter>
     </Card>
   );
