@@ -87,6 +87,7 @@ export async function logout() {
     `${process.env.REACT_APP_BACKEND_URL}/api/v1/users/logout`,
     {
       method: "POST",
+      credentials: "include",
     }
   );
 }
