@@ -207,6 +207,7 @@ const Todo = ({
                     />
                     <button
                       onClick={() => {
+                        setIsDisabled(true);
                         addTask(taskText, todo._id);
                       }}
                       id="button"
@@ -284,8 +285,10 @@ const Todo = ({
                 <button
                   onClick={() => {
                     if (editingTaskText === true && taskIndex >= 0) {
+                      setIsDisabled(true);
                       editTask(currentTaskId, taskText, taskIndex);
                     } else {
+                      setIsDisabled(true);
                       addTask(taskText, todo._id);
                     }
                   }}

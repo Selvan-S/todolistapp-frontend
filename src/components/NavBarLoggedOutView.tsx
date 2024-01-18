@@ -10,8 +10,8 @@ const NavBarLoggedOutView = ({
 }: NavBarLoggedOutViewProbs) => {
   return (
     <>
-      <Button onClick={onSignUpClicked}>Sign Up</Button>
-      <Button onClick={onLoginClicked}>Login In</Button>
+      <Button onClick={onSignUpClicked}>Sign up</Button>
+      <Button onClick={onLoginClicked}>Log in</Button>
     </>
   );
 };
