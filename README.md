@@ -1,7 +1,7 @@
 # TodoList App
 ## About
 
-This is a frontend for the TodoList App project, built using the Typescript, React, Express.js, MongoDB, Node.js, express-session, React Hook Form,
+This is a frontend for the TodoList App project. Built using the Typescript, React, Express.js, MongoDB, Node.js, express-session, React Hook Form,
 Bootstrap, React Bootstrap.<br /><hr />
 ## Links
 - Check out the live website [here](https://2dolist-app.netlify.app/)!.
