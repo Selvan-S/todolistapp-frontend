@@ -12,7 +12,11 @@ Step 2: Create a `.env.development.local` file in the root folder (Frontend) and
 ```
 REACT_APP_BACKEND_URL = http://localhost:<Backend PORT>
 ```
-Step 3: Run the application
+Step 3: Install dependencies
+```
+npm install
+```
+Step 4: Run the application
 ```
 npm start
 ```
