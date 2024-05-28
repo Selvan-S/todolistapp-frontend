@@ -7,16 +7,17 @@ Bootstrap, React Bootstrap.<br /><hr />
 - Check out the live website [here](https://2dolist-app.netlify.app/)!.
 - To Check the Backend code of the Bookstore project, please refer to this [link](https://github.com/Selvan-S/todolistapp-backend).
 ## Run
-Step 1: Clone or Fork the [`todolistapp-backend`](https://github.com/Selvan-S/todolistapp-backend) respository. Run the Backend, note the localhost.<br />
+Step 1: Clone or Fork the [`todolistapp-backend`](https://github.com/Selvan-S/todolistapp-backend) respository. Run the Backend, note the localhost.<br /><br/>
 Step 2: Create a `.env.development.local` file in the root folder (Frontend) and give the Backend URL.
 ```
 REACT_APP_BACKEND_URL = http://localhost:<Backend PORT>
 ```
-Step 3: Install dependencies
+Step 3: Add the `.env.development.local` in `.gitignore` file <br/> <br/>
+Step 4: Install dependencies
 ```
 npm install
 ```
-Step 4: Run the application
+Step 5: Run the application
 ```
 npm start
 ```
